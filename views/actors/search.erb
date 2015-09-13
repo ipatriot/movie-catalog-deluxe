@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+  <h1>Actors</h1>
+  <form action = "actor_search" method = "get">
+    Search for Actors <input type="text" name="user_search">
+    <input type="submit" value="Search">
+  </form>
+  <table style = 'width: 20%'>
+    <%actors.each do |actor| %>
+    <tr>
+      <td><a href="/actors/<%=actor['id']%>"><%= actor["name"] %></a> </td>
+    </tr>
+    <% end %>
+
+</body>
+
+</html>

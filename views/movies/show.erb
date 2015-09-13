@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h4><a href="/">Home</a></h4>
+
+</head>
+
+<body>
+  <h1><%= movie[0]["title"] %> </h1>
+  <h2>Genre: <%=film_info[0]["genre"]%></h2>
+  <h3>Year: <%=film_info[0]["year"]%></h3>
+  <h3>Rating: <%=film_info[0]["rating"]%></h3>
+  <% if film_info[0]["studio"] == nil %>
+    <h3> Does not have a studio </h3>
+  <% else %>
+    <h3>Studio: <%=film_info[0]["studio"]%></h3>
+  <%end%>
+
+  <table>
+    <tr>
+      <td>Actor:</td> <td>Character:</td>
+    </tr>
+    <% cast_info.each do |member| %>
+      <tr>
+        <td> <a href="/actors/<%=member['id']%>"><%= member["name"] %></a> </td> <td> <%= member["character"] %> </td>
+      </tr>
+    <% end %>
+
+
+</body>
+
+</html>

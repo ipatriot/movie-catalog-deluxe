@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h4><a href="/">Home</a></h4>
+
+</head>
+
+<body>
+  <h1>Actors</h1>
+  <form action = "actor_search" method = "get">
+    Search for Actors <input type="text" name="user_search">
+    <input type="submit" value="Search">
+  </form>
+  <table style = 'width: 20%'>
+    <%actors.each_with_index do |actor, index| %>
+    <tr>
+      <td><a href="/actors/<%=actor['id']%>"><%= actor["name"] %></a> </td>
+      <td> <%= counts[index] %> </td>
+    </tr>
+    <% end %>
+
+    <p>
+      <a href="/actors?page=<%=page.to_i - 1%>">Previous Page</a>
+      <a href="/actors?page=<%=page.to_i + 1%>">Next Page</a>
+
+    </p>
+</body>
+
+</html>

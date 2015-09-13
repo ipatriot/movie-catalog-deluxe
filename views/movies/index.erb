@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h4><a href="/">Home</a></h4>
+</head>
+
+<body>
+  <h1>Movies</h1>
+  <form action = "movie_search" method = "get">
+    Search for Movies <input type="text" name="user_search">
+    <input type="submit" value="Search">
+  </form>
+  <ul>
+    <li><a href="/movies?order=year">Sort by year</a></li>
+    <li><a href="/movies?order=rating">Sort by rating</a></li>
+  </ul>
+  <table style = 'width: 100%'>
+    <%movies.each do |movie| %>
+    <tr>
+      <td><a href="/movies/<%=movie['id']%>"><%= movie["title"] %></a> </td> <td> <%= movie["year"] %> </td>
+    </tr>
+    <% end %>
+    <p>
+      <a href="/movies?page=<%=page.to_i - 1%>">Previous Page</a>
+      <a href="/movies?page=<%=page.to_i + 1%>">Next Page</a>
+    </p>
+</body>
+
+</html>
